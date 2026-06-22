@@ -1,5 +1,3 @@
-# comprehensive_test.py - Test all major features
-
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -13,7 +11,7 @@ from piece import Color, PieceType
 print("=== COMPREHENSIVE SYSTEM TEST ===\n")
 
 try:
-    # Test 1: Board setup
+    # Test 1: Postavljanje table
     print("1. BOARD SETUP")
     board = Board()
     board.setup_initial_position()
@@ -23,7 +21,7 @@ try:
     print(f"   Black pieces: {len(blacks)} (should be 12)")
     print(f"   OK\n")
     
-    # Test 2: Move generation
+    # Test 2: Generisanje poteza
     print("2. MOVE GENERATION")
     mg = MoveGenerator()
     white_moves = mg.get_all_moves(board, Color.WHITE)
@@ -31,7 +29,7 @@ try:
     print(f"   First move: {white_moves[0] if white_moves else 'None'}")
     print(f"   OK\n")
     
-    # Test 3: Heuristic evaluation
+    # Test 3: Heuristička evaluacija
     print("3. HEURISTIC EVALUATION")
     heur = Heuristic()
     score = heur.evaluate(board, Color.WHITE)
@@ -39,20 +37,20 @@ try:
     print(f"   (Should be ~0 for symmetric start)")
     print(f"   OK\n")
     
-    # Test 4: Minimax
+    # Test 4: Minimax pretraga
     print("4. MINIMAX SEARCH")
     mm = Minimax()
     best_move = mm.get_best_move(board, Color.WHITE)
     print(f"   Best move found: {best_move}")
     print(f"   OK\n")
     
-    # Test 5: Game loop
+    # Test 5: Tok igre
     print("5. GAME LOOP")
     game = GameLoop(ai_color=Color.BLACK)
     print(f"   Relic deck: {len(game.relic_deck.deck)} items")
     print(f"   First relic type: {game.relic_deck.get_front()}")
     
-    # Make a move
+    # Odigraj potez
     moves = game.mg.get_all_moves(game.board, Color.WHITE)
     if moves:
         move = moves[0]
@@ -61,7 +59,7 @@ try:
         game.current_player = game.switch_player()
         print(f"   OK\n")
     
-    # Test 6: Relics
+    # Test 6: Sistem relikvija
     print("6. RELICS SYSTEM")
     from relics import RelicDeck, RelicType
     deck = RelicDeck()

@@ -1,5 +1,3 @@
-# quick_test.py - Test relics system
-
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -9,27 +7,27 @@ from piece import Color
 print("=== JUNACKI MEGDAN - RELIC SYSTEM TEST ===\n")
 
 try:
-    # Initialize game
+    # Inicijalizuj igru
     game = GameLoop(ai_color=Color.BLACK)
     print("1. GameLoop created - OK")
     print("2. Relic deck initialized - OK")
     
-    # Run a few turns
+    # Odigraj nekoliko poteza
     moves = game.mg.get_all_moves(game.board, Color.WHITE)
     print(f"3. Got {len(moves)} moves for White - OK")
     
-    # Make first move
+    # Odigraj prvi potez
     if moves:
         move = moves[0]
         print(f"4. Making first move: {move}")
         game.apply_move(move)
         print("5. Move applied - OK")
         
-        # Advance turn (which adds new relic to deck)
+        # Napreduj na sledeći potez (dodaje novu relikviju u špil)
         game.relic_deck.advance_turn()
         print("6. Relic deck advanced - OK")
         
-        # Check if any piece got a relic
+        # Provjeri da li je neka figura dobila relikviju
         active_relics_count = 0
         for idx, piece in game.board.get_all_pieces(Color.WHITE):
             if piece.get_active_relics():

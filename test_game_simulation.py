@@ -1,5 +1,3 @@
-# test_game_simulation.py
-
 import sys
 import os
 import time
@@ -15,9 +13,9 @@ try:
     print("Game initialized - WHITE vs AI(BLACK)\n")
     
     start_time = time.time()
-    max_time = 20  # 20 seconds timeout
-    
-    # Play 10 moves
+    max_time = 20  # vremensko ograničenje od 20 sekundi
+
+    # Odigraj 10 poteza
     for turn in range(10):
         elapsed = time.time() - start_time
         if elapsed > max_time:
@@ -31,13 +29,13 @@ try:
             break
         
         if game.current_player == Color.BLACK:
-            # AI chooses with 3 second timeout
+            # AI bira potez (vremensko ograničenje 3 sekunde)
             turn_start = time.time()
             move = game.minimax.get_best_move(game.board, game.current_player)
             turn_time = time.time() - turn_start
             player = f"BLACK(AI)[{turn_time:.1f}s]"
         else:
-            # Take first move
+            # Uzmi prvi dostupan potez
             move = moves[0]
             player = "WHITE(HUMAN)"
         

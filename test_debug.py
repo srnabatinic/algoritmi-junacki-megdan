@@ -1,5 +1,3 @@
-# test_debug.py
-
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +11,7 @@ try:
     game = GameLoop(ai_color=Color.BLACK)
     print("1. GameLoop created")
     
-    # Play until an issue
+    # Igraj dok ne nastane problem
     for turn in range(12):
         print(f"\nTurn {turn+1}:")
         print(f"  Current player: {game.current_player}")
@@ -25,7 +23,7 @@ try:
             print(f"  No moves - Game Over!")
             break
         
-        # Take first move for all
+        # Uzmi prvi potez za svakog igrača
         move = moves[0]
         print(f"  Move: {move}")
         

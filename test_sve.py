@@ -1,6 +1,5 @@
 """
-Kompletan test suite — sve funkcionalnosti projekta Junacki Megdan.
-Pokreni: python3 test_sve.py
+Kompletan test suite — sve funkcionalnosti projekta Junacki Megdan
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
